@@ -4,37 +4,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Hello World!");
-        System.out.println(isValidVergiKimlikNo("0490351705"));
+        System.out.println(isValidVergiKimlikNo("2526412474"));
     }
-
+    
     public static boolean isValidVergiKimlikNo(String vergiKimlikNo) {
-
-        try {
-            if (vergiKimlikNo.length() == 10){
-                int[] x  = new int[9];
-                int[] y  = new int[9];
-                for (int i=0 ; i<9 ; i++){
-                    x[i] = (Character.getNumericValue(vergiKimlikNo.charAt(i))+ 9-i) % 10;
-                    y[i] = (x[i] *  (int) Math.pow(2 , 9-i) ) & 9;
-
-                    if (x[i] != 0 && y[i] == 0){
-                        y[i] = 9;
-                    }
-                }
-
-                return ((10 - (IntStream.of(y).sum() % 10)) % 10) == Character.getNumericValue(vergiKimlikNo.charAt(9));
-            }
-            else {
-                return false;
-            }
-        }
-        catch (Exception e){
-            return false;
-        }
-    }
-
-    public static boolean isValidVergiKimlikNo2(String vergiKimlikNo) {
         int v1 = 0;
         int v2 = 0;
         int v3 = 0;
@@ -80,15 +53,15 @@ public class Main {
             v88 = (v8 * 4) % 9;
             v99 = (v9 * 2) % 9;
 
-            if (v1 != 0 && v11 != 0) v11 = 9 ;
-            if (v2 != 0 && v22 != 0) v22 = 9 ;
-            if (v3 != 0 && v33 != 0) v33 = 9 ;
-            if (v4 != 0 && v44 != 0) v44 = 9 ;
-            if (v5 != 0 && v55 != 0) v55 = 9 ;
-            if (v6 != 0 && v66 != 0) v66 = 9 ;
-            if (v7 != 0 && v77 != 0) v77 = 9 ;
-            if (v8 != 0 && v88 != 0) v88 = 9 ;
-            if (v9 != 0 && v99 != 0) v99 = 9 ;
+            if (v1 != 0 && v11 == 0) v11 = 9 ;
+            if (v2 != 0 && v22 == 0) v22 = 9 ;
+            if (v3 != 0 && v33 == 0) v33 = 9 ;
+            if (v4 != 0 && v44 == 0) v44 = 9 ;
+            if (v5 != 0 && v55 == 0) v55 = 9 ;
+            if (v6 != 0 && v66 == 0) v66 = 9 ;
+            if (v7 != 0 && v77 == 0) v77 = 9 ;
+            if (v8 != 0 && v88 == 0) v88 = 9 ;
+            if (v9 != 0 && v99 == 0) v99 = 9 ;
 
             toplam = v11 + v22 + v33 + v44 + v55 + v66 + v77 + v88 + v99;
 
